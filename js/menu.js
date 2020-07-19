@@ -11,7 +11,7 @@ bodyFocus.addEventListener('click', function(){
   bodyFocus.classList.remove("focusActive");
   activeMenu.classList.remove('bars-animation')
   navLink.classList.remove("isActive");
-})
+});
 
 
 /*var Formulaire = document.querySelector('la classe du parent de ton formulaire');

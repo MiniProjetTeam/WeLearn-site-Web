@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import "font.css";
 
 *,
 *::after,
@@ -9,12 +10,15 @@
 :root {
   --container: 1280px;
   --primary: #0272fa;
+  --itemsVisible: 3;
+  --itemsTotal : 7;
+
 }
 
 body {
-  font-family: comfortaa, sans-serif;
+  font-family: Comfortaa, sans-serif;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.5;
   padding: 0;
   margin: 0;
   color: #000;
@@ -32,7 +36,7 @@ body .bodyFocus {
 
 .header {
   width: 100%;
-  height: auto;
+  height: 51px;
   /*overflow-y: hidden;*/
   display: flex;
   box-shadow: 0 0 8px rgb(0, 0, 0, 0.2);
@@ -42,13 +46,17 @@ body .bodyFocus {
   position: fixed;
   top: 0;
   z-index: 1000;
-  background-color: white; 
+  background-color: white;
 }
 
 body .full-contentChild {
-  margin-top: 81px;
+  margin-top: 53px;
 }
-
+.brand-logo a img{
+  width: 80px;
+  height: 60px;
+  vertical-align: middle;
+}
 .header .nav-bars {
   display: none;
   z-index: 1;
@@ -66,7 +74,8 @@ body .full-contentChild {
 .header .nav-link a {
   margin-right: 16px;
   padding: 8px 16px;
-  font-weight: 600;
+  /*font-weight: 600;*/
+  font-family: Poppins;
   display: inline-block;
   transition: background-color 0.3s;
 }
@@ -173,7 +182,6 @@ hr {
 .f-description h2 {
   font-size: 24px;
 }
-
 .foot__body .f-social div a {
   padding: 0px 4px;
   margin-top : 8px
@@ -226,7 +234,7 @@ hr {
 .banner-description>*+*{
   margin : 28px 0;
   font-weight: 400;
-  font-family : poppins;
+  font-family : Poppins;
   font-size : 16px;
 }
 .banner-description .fast-link{
@@ -240,7 +248,7 @@ hr {
   background: #0272FC;
   color: white;
   font-size : 16px;
-  font-family: poppins;
+  font-family: Poppins;
 }
 div.brand-description2.contentChild.another-description{
   background: #f1f1f1;
@@ -295,26 +303,24 @@ div.brand-description2.contentChild{
   padding-bottom: 36px;
 }
  .fast-link a{
-  padding: 8px 18px;
+  padding: 8px 16px;
   font-size: 16px;
-  text-align : center;
-  font-family: poppins;
+  font-family: Poppins;
   font-weight : 500;
   width: 50%;
-  border-radius : 2px;
+  border-radius : 6px;
   margin-right: 16px;
   color: white;
   background-color: #0050DC;
-  width : calc(50% - 16px);
+  width : auto;
   display: inline-block;
   transition: background-color .3s, color .3s;
   border : 2px solid transparent;
 }
 .fast-link a:first-child{
   background-color: white;
-  width : calc(50% - 24px);
   display: inline-block;
-  color: #0050DC;
+  color: black;
   font-weight: 500;
 }
 .fast-link a:first-child:hover{
@@ -322,11 +328,15 @@ div.brand-description2.contentChild{
   color : white;
   border: 2px solid white;
 }
+.fast-link a:first-child svg path{
+  fill : black;
+}
 .fast-link a:first-child:hover svg path{
   fill : white;
 }
 .fast-link a:hover{
   border: 2px solid #0050DC;
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
   background-color: white;
   font-weight: 500;
   color: black;
@@ -335,7 +345,7 @@ div.brand-description2.contentChild{
   fill : black;
 }
 .fast-link a span{
-  margin-right : 36px;
+  margin-right : 4px;
 }
 .fast-link a span svg{
   vertical-align: middle;
@@ -392,7 +402,7 @@ div.brand-description2.contentChild{
   font-weight: 500;
   background: #0D86FF;
   display: inline-block;
-  border-radius : 3px;
+  border-radius : 6px;
   transition : box-shadow .3s, background .3s, color .3s;
 }
 .assistance-btn a:hover{
@@ -404,16 +414,25 @@ section.full-contentChild .banner-img{
   height : auto;
 }
 .main-carousel{
-  font-family : 'poppins';
+  font-family : Poppins;
   padding : 81px;
   display : flex;
+  overflow: hidden;
   /*flex-wrap : wrap;*/
   justify-content: space-between;
   align-items: center;
 }
+.main-c2{
+  flex-direction : row-reverse;
+}
+.main-c2 .carousel-description{
+  margin-left: 64px;
+  margin-right: 0!important;
+}
 .main-carousel .carousel-description{
-  margin-right : 64px; 
+  margin-right : 64px;
   min-width : 418px;
+  max-width : 456px;
 }
 .carousel-description p{
   color : #949494;
@@ -423,15 +442,20 @@ section.full-contentChild .banner-img{
   font-weight : 400;
   line-height : 1.1;
 }
+.carou-title h4{
+  font-weight: 400;
+  font-size: 0.85em;
+}
 .carousel-body .carou-author{
   opacity : 0.8;
+  font-size: 0.75em;
   padding : 2px 0;
 }
 .carousel-body .carou-stars{
   padding : 6px 0;
+  font-size: 0.65em;
   display : flex;
   align-items : center;
-  font-size : 12px;
   justify-content: space-between;
 }
 .carou-stars span{
@@ -446,35 +470,81 @@ section.full-contentChild .banner-img{
 .carousel-body{
   width : 100%;
 }
-.carousel-body .main-items{
-  display: flex;
-  flex: none;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  /*grid-template-columns: repeat(4,1fr);
-  grid-template-rows: 1;*/
+.carousel-body .main-items, .main-items2{
+  flex : none;
+  width: calc((100% / var(--itemsVisible)) * var(--itemsTotal));
+  float: left;
+  overflow: hidden;
+  margin-left: 0;
+  transition: margin-left .5s;
 }
-.main-items h4{
+.main-items h4, .main-items2 h4{
   margin: 2px 0;
 }
-.main-items .carousel-items{
- max-height : 284px;
-  max-width : 205px;
-  width : 205px;
-  margin : 0 8px;
+.main-items .carousel-items, .main-items2 .carousel-items{
   border-radius : 4px;
   box-shadow: 0 0 6px rgb(0, 0, 0, .25);
+  transition: transform .3s;
+}
+.carou-container{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.clear{
+  display: table;
+  clear: both;
+}
+.item{
+  width: calc(100% / var(--itemsTotal));
+  padding : 8px;
+  float: left;
+}
+.control-btn{
+  position : absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.next{
+  right: -15px;
+  display : flex;
+  flex : none;
+  justify-content: center;
+  align-items: center;
+}
+.next svg{
+  width: 24px;
+  height: 24px;
+}
+.prev{
+  left: 20px;
+  display : flex;
+  flex : none;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 .carousel-items .carou-img img{
   border-top-left-radius: 4px;
+  width : 100%;
   border-top-right-radius: 4px;
 }
 .carousel-items .carou-body{
   padding: 16px 16px;
 }
 .carousel-body .main-items-title{
-  font-size : 24px;
+  font-size : 16px;
+  margin-left: 16px;
   opacity: 0.85;
   margin-bottom : 12px;
   font-weight : 400;
@@ -514,6 +584,15 @@ section.full-contentChild .banner-img{
 
 /*mobile lanscape and tablet*/
 @media screen and (max-width: 767px) {
+  :root{
+    --itemsVisible : 2;
+  }.main-items .carousel-items, .main-items2 .carousel-items{
+    /*border: 1px solid #dfdfdf;*/
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  }
+  .mobile-carousel{
+    box-sizing: border-box;
+  }
   .contentChild {
     padding: 12px;
   }
@@ -614,7 +693,7 @@ section.full-contentChild .banner-img{
     flex-direction: column-reverse;
   }
   .full-contentChild.contentChild{
-    margin-top: 81px;
+    margin-top: 53px;
     margin-left: 0;
     margin-right: 0;
     padding: 0;
@@ -640,7 +719,7 @@ section.full-contentChild .banner-img{
     color: #121212;
     text-shadow : none;
   }
-  
+
   .banner-description>*+*{
     margin : 24px 0;
     font-weight: 300;
@@ -690,9 +769,9 @@ section.full-contentChild .banner-img{
   .carousel-items{
   box-shadow: 0 0 6px #191919;
   }
-  .carousel-body .main-items{
+  .carousel-body .main-carouseltems, .main-items2{
     width: auto;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
     margin : 0;
   }
   .carousel-items:first-child{
@@ -701,6 +780,9 @@ section.full-contentChild .banner-img{
 }
 /*tablet*/
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+  :root{
+    --itemsVisible : 2;
+  }
   .contentChild {
     margin: 42px 12px;
     padding: 12px;
@@ -710,7 +792,7 @@ section.full-contentChild .banner-img{
     display: none;
   }
   .full-contentChild.contentChild{
-    margin-top: 81px;
+    margin-top: 53px;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -780,6 +862,7 @@ section.full-contentChild .banner-img{
 @media screen and (min-width: 1280px) and (max-width: 1599px) {
   :root {
     --container: 1200px;
+    --itemsVisible : 4;
   }
 
   .contentChild {
@@ -791,6 +874,7 @@ section.full-contentChild .banner-img{
 /*Desktop*/
 @media screen and (min-width: 1600px) {
   :root {
+    --itemsVisible : 4;
     --container: 1400px;
   }
 
